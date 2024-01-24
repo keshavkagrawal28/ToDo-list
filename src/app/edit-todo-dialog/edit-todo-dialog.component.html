@@ -1,49 +1,51 @@
-<h1 class="title">Edit Todo</h1>
-<div class="mat-dialog-content">
-  <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
-    <div class="field">
-      <div class="control">
-        <input
-          type="text"
-          required
-          #todoTextField="ngModel"
-          minlength="5"
-          class="input"
-          [ngModel]="todo.text"
-          name="text"
-          placeholder="Type TODO text here..."
-        />
-      </div>
+<div class="dialog-container">
+  <h1 class="title">Edit Todo</h1>
+  <div class="mat-dialog-content">
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
+      <div class="field">
+        <div class="control">
+          <input
+            type="text"
+            required
+            #todoTextField="ngModel"
+            minlength="5"
+            class="input"
+            [ngModel]="todo.text"
+            name="text"
+            placeholder="Type TODO text here..."
+          />
+        </div>
 
-      <div class="error-container" *ngIf="todoTextField.invalid">
-        <p
-          class="help is-danger"
-          *ngIf="todoTextField.errors && todoTextField.errors['required']"
-        >
-          Please enter some text for your Todo.
-        </p>
-        <p
-          class="help is-danger"
-          *ngIf="todoTextField.errors && todoTextField.errors['minlength']"
-        >
-          Todo text must be at least 5 characters.
-        </p>
+        <div class="error-container" *ngIf="todoTextField.invalid">
+          <p
+            class="help is-danger"
+            *ngIf="todoTextField.errors && todoTextField.errors['required']"
+          >
+            Please enter some text for your Todo.
+          </p>
+          <p
+            class="help is-danger"
+            *ngIf="todoTextField.errors && todoTextField.errors['minlength']"
+          >
+            Todo text must be at least 5 characters.
+          </p>
+        </div>
       </div>
-    </div>
-    <br />
+      <br />
 
-    <div class="field is-grouped is-grouped-right">
-      <div class="control">
-        <button type="button" class="button is-light" (click)="close()">
-          Cancel
-        </button>
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <button type="button" class="button is-light" (click)="close()">
+            Cancel
+          </button>
+        </div>
+        <div class="control">
+          <button type="submit" class="button alt-gradient-button">
+            <i class="material-icons">save</i>
+            Save
+          </button>
+        </div>
       </div>
-      <div class="control">
-        <button type="submit" class="button alt-gradient-button">
-          <i class="material-icons">save</i>
-          Save
-        </button>
-      </div>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
