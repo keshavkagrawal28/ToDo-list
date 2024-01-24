@@ -31,4 +31,16 @@ export class TodosComponent implements OnInit {
     this.dataService.addTodo(new Todo(todoText));
     form.reset();
   }
+
+  toggleCompleted(todo: Todo) {
+    todo.completed = !todo.completed;
+  }
+
+  editTodo(index: number, todo: Todo) {
+    console.log('edit clicked', index, todo);
+  }
+
+  deleteTodo(index: number) {
+    this.dataService.removeTodo(index);
+  }
 }
