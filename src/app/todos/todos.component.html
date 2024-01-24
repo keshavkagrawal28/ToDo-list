@@ -4,21 +4,43 @@
 
 <div class="container">
   <div class="add-todo-box">
-    <form>
+    <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
       <h2 class="title is-5">New ToDo</h2>
-      <div class="field is-grouped">
+      <div class="field is-grouped" style="margin: 0">
         <p class="control is-expanded">
           <input
+            ngModel
+            #todoTextField="ngModel"
+            required
+            minlength="5"
+            name="text"
             class="input"
             type="text"
             placeholder="Type todo text here..."
           />
         </p>
         <p class="control">
-          <button class="button alt-gradient-button">
+          <button type="submit" class="button alt-gradient-button">
             <i class="material-icons">add</i>
             Add
           </button>
+        </p>
+      </div>
+      <div
+        class="error-container"
+        *ngIf="todoTextField.invalid && showValidationErrors"
+      >
+        <p
+          class="help is-danger"
+          *ngIf="todoTextField.errors && todoTextField.errors['required']"
+        >
+          Please enter some text for your Todo.
+        </p>
+        <p
+          class="help is-danger"
+          *ngIf="todoTextField.errors && todoTextField.errors['minlength']"
+        >
+          Todo text must be at least 5 characters.
         </p>
       </div>
     </form>
