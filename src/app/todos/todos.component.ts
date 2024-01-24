@@ -3,11 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { DataService } from '../shared/data.service';
 import { FormsModule, NgForm } from '@angular/forms';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TodoItemComponent],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss',
 })
