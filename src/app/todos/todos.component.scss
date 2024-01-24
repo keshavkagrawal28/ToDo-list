@@ -12,12 +12,18 @@
 
 .container {
   max-width: 800px !important;
+}
 
-  .add-todo-box {
-    padding: 25px;
-    background: white;
-    border-radius: 4px;
-    margin-top: -68px;
-    box-shadow: 0 4px 12px rgba(black, 0.08);
-  }
+.add-todo-box-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.add-todo-box {
+  padding: 25px;
+  background: white;
+  border-radius: 4px;
+  margin-top: -68px;
+  box-shadow: 0 4px 12px rgba(black, 0.08);
 }
